@@ -23,8 +23,10 @@ services:
     links:
       - db
     volumes:
-      - ./nextcloud/config:/config 
-      - ./nextcloud/data:/data 
+      - ./nextcloud/config:/var/www/html/config
+      - ./nextcloud/data:/var/www/html/data 
+      - ./nextcloud/custom_apps:/var/www/html/custom_apps
+      - ./nextcloud/themes:/var/www/html/themes
     environment:
       - MYSQL_PASSWORD=p4ssw0rd
       - MYSQL_DATABASE=nextcloud

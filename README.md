@@ -7,8 +7,8 @@ docker-compose up -d
 
 En el navegador ir a:
 
-"localhost:8443" 
-"IP:8443" para acceder desde otro PC en la misma red wifi
+"localhost:8000" 
+"IP:8000" para acceder desde otro PC en la misma red wifi
 
 Usuario: Nextcloud
 Password: el que quieras

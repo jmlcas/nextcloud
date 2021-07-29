@@ -5,7 +5,7 @@ services:
   db:
     image: mariadb:10.5.11
     restart: always
-    command: command: ['--innodb_read_only_compressed=OFF']
+    command: command: '--innodb_read_only_compressed=OFF'
     volumes:
       - ./db:/var/lib/mysql
     environment:

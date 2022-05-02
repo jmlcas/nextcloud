@@ -3,7 +3,7 @@ version: '2'
 services:
 
   db:
-    image: mariadb:10.5.11
+    image: mariadb:10.7
     restart: always
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW 
     volumes:
@@ -15,7 +15,7 @@ services:
       - MYSQL_USER=nextcloud
 
   nextcloud:
-    image: nextcloud:22.0
+    image: nextcloud:23.0
     restart: always
     ports:
       - "8000:80"

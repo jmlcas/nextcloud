@@ -1,10 +1,11 @@
-version: '2'
+version: '3.3'
 
 services:
 
   db:
     image: mariadb:latest
     restart: unless-stopped
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW    
     volumes:
       - ./db:/var/lib/mysql
     environment:

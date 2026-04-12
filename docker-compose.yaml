@@ -19,14 +19,10 @@ services:
     restart: unless-stopped
     ports:
       - "8000:80"
-      - "8443:443"
     links:
       - db
     volumes:
-      - ./nextcloud/config:/var/www/html/config
-      - ./nextcloud/data:/var/www/html/data
-      - ./nextcloud/custom_apps:/var/www/html/custom_apps
-      - ./nextcloud/themes:/var/www/html/themes
+      - ./nextcloud:/var/www/html
     environment:
       - MYSQL_PASSWORD=p4ssw0rd
       - MYSQL_DATABASE=nextcloud

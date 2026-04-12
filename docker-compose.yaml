@@ -2,6 +2,7 @@ services:
 
   db:
     image: mariadb:latest              # Para Raspberry 32 bits cambiar "mariadb:latest" por "yobasystems/alpine-mariadb:latest"
+    container_name: nextcloud-db
     restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
@@ -14,6 +15,7 @@ services:
 
   nextcloud:
     image: nextcloud:latest
+    container_name: nextcloud
     restart: unless-stopped
     ports:
       - "8000:80"

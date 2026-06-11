@@ -4,9 +4,9 @@ services:
     image: mariadb:latest              # Para Raspberry 32 bits cambiar "mariadb:latest" por "yobasystems/alpine-mariadb:latest"
     container_name: nextcloud-db
     restart: unless-stopped
-    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    command: --transaction-isolation=READ-COMMITTED
     volumes:
-      - ./db:/var/lib/mysql
+      - ./db:/var/lib/mysql:z
     environment:
       - MYSQL_ROOT_PASSWORD=p4ssw0rd
       - MYSQL_PASSWORD=p4ssw0rd
@@ -19,10 +19,10 @@ services:
     restart: unless-stopped
     ports:
       - "8000:80"
-    links:
+    depends_on:
       - db
     volumes:
-      - ./nextcloud:/var/www/html
+      - ./nextcloud:/var/www/html:z
     environment:
       - MYSQL_PASSWORD=p4ssw0rd
       - MYSQL_DATABASE=nextcloud
